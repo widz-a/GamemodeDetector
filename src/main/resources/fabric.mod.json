@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "gamemodedetection",
+  "version": "${version}",
+  "name": "gamemodedetection",
+  "description": "",
+  "authors": [
+    "Withicality"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/gamemodedetection/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "withicality.gamemodedetection.client.GamemodeDetectionClient"
+    ],
+    "main": [
+      "withicality.gamemodedetection.GamemodeDetection"
+    ]
+  },
+  "mixins": [
+    "GamemodeDetection.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.12",
+    "fabric": "*",
+    "minecraft": "1.19.3"
+  }
+}
