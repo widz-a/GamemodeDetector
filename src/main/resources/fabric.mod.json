@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "id": "gamemodedetection",
+  "id": "gamemodedetector",
   "version": "${version}",
-  "name": "gamemodedetection",
+  "name": "Gamemode Detector",
   "description": "",
   "authors": [
     "Withicality"
   ],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/gamemodedetection/icon.png",
+  "icon": "assets/gamemodedetector/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "withicality.gamemodedetection.client.GamemodeDetectionClient"
+      "withicality.gamemodedetector.client.GamemodeDetectorClient"
     ],
     "main": [
-      "withicality.gamemodedetection.GamemodeDetection"
+      "withicality.gamemodedetector.GamemodeDetector"
     ]
   },
   "mixins": [

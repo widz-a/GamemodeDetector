@@ -1,8 +1,8 @@
-package withicality.gamemodedetection;
+package withicality.gamemodedetector;
 
 import net.fabricmc.api.ModInitializer;
 
-public class GamemodeDetection implements ModInitializer {
+public class GamemodeDetector implements ModInitializer {
     @Override
     public void onInitialize() {
 

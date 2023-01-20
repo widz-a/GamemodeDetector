@@ -1,4 +1,4 @@
-package withicality.gamemodedetection;
+package withicality.gamemodedetector;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
