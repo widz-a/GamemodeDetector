@@ -13,18 +13,21 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "withicality.gamemodedetector.client.GamemodeDetectorClient"
+      "withicality.gamemodedetector.GamemodeDetectorClient"
     ],
-    "main": [
-      "withicality.gamemodedetector.GamemodeDetector"
+    "modmenu": [
+      "withicality.gamemodedetector.ModMenu"
     ]
   },
   "mixins": [
     "GamemodeDetection.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.12",
+    "fabricloader": ">=0.14.19",
     "fabric": "*",
-    "minecraft": "1.19.3"
+    "minecraft": "1.19.x"
+  },
+  "recommends": {
+    "modmenu": "*"
   }
 }

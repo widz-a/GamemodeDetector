@@ -1,5 +1,7 @@
-package withicality.gamemodedetector.client;
+package withicality.gamemodedetector;
 
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -9,7 +11,6 @@ import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.world.GameMode;
-import withicality.gamemodedetector.ChatColor;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -19,8 +20,12 @@ import java.util.UUID;
 @Environment(EnvType.CLIENT)
 public class GamemodeDetectorClient implements ClientModInitializer {
     private final Map<UUID, GameMode> gamemodes = new HashMap<>();
+    private TheConfig config;
     @Override
     public void onInitializeClient() {
+        AutoConfig.register(TheConfig.class, JanksonConfigSerializer::new);
+        config = AutoConfig.getConfigHolder(TheConfig.class).getConfig();
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             ClientPlayNetworkHandler network = client.getNetworkHandler();
             if (network == null) {
@@ -38,7 +43,8 @@ public class GamemodeDetectorClient implements ClientModInitializer {
                 gamemodes.put(uuid, now);
 
                 if (last != null && last.equals(now)) return;
-                send("&b["+ time + "] &fPlayer &7" + p.getProfile().getName() + " &fis in &7" + now.name() + "&f.");
+                if (config.mod.enabled)
+                    send("&b["+ time + "] &fPlayer &7" + p.getProfile().getName() + " &fis in &7" + now.name() + "&f.");
             });
         });
     }
