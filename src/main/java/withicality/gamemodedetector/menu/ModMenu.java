@@ -1,4 +1,4 @@
-package withicality.gamemodedetector;
+package withicality.gamemodedetector.menu;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;

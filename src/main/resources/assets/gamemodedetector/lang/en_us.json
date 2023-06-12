@@ -1,4 +1,10 @@
 {
-  "text.autoconfig.gamemodedetector.title": "Configuration",
-  "text.autoconfig.gamemodedetector.option.mod.enabled": "Enabled"
+  "text.autoconfig.gamemodedetector.title": "Gamemode Detector",
+
+  "text.autoconfig.gamemodedetector.option.gamemode.enabled": "Enabled",
+  "text.autoconfig.gamemodedetector.option.gamemode.actionbar": "Action Bar",
+  "text.autoconfig.gamemodedetector.option.gamemode.message": "Message",
+
+
+  "key.gamemodedetector": "Gamemode Detector"
 }
