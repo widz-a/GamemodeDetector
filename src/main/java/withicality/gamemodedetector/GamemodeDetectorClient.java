@@ -7,6 +7,7 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -42,6 +43,8 @@ public class GamemodeDetectorClient implements ClientModInitializer {
         AutoConfig.register(TheConfig.class, JanksonConfigSerializer::new);
         config = AutoConfig.getConfigHolder(TheConfig.class).getConfig();
         INSTANCE = this;
+
+        ClientCommandRegistrationCallback.EVENT.register(this::registerCommand);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (kb.isPressed()) {
