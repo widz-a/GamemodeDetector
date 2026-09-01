@@ -6,5 +6,6 @@
   "text.autoconfig.gamemodedetector.option.gamemode.message": "Message",
 
 
+  "key.category.gamemodedetector.main": "Gamemode Detector",
   "key.gamemodedetector": "Gamemode Detector"
 }

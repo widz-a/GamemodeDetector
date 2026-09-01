@@ -4,13 +4,13 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.brigadier.CommandDispatcher;
 
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
-import net.minecraft.world.GameMode;
+import net.minecraft.world.level.GameType;
 import withicality.gamemodedetector.GamemodeDetectorClient;
 
 import java.util.Collection;
 
-import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.*;
-import static dev.xpple.clientarguments.arguments.CGameProfileArgumentType.*;
+import static net.fabricmc.fabric.api.client.command.v2.ClientCommands.*;
+import static dev.xpple.clientarguments.arguments.CGameProfileArgument.*;
 
 public class CheckGamemodeCommand {
 
@@ -22,9 +22,9 @@ public class CheckGamemodeCommand {
                 })
                 .then(argument("player", gameProfile())
                         .executes(context -> {
-                            Collection<GameProfile> profiles = getCProfileArgument(context, "player");
+                            Collection<GameProfile> profiles = getProfileArgument(context, "player");
                             for (GameProfile profile : profiles) {
-                                GameMode gamemode = GamemodeDetectorClient.getGamemode(profile.getId());
+                                GameType gamemode = GamemodeDetectorClient.getGamemode(profile.id());
                                 GamemodeDetectorClient.send(GamemodeDetectorClient.getMessage(profile, gamemode), false);
                             }
                             return 1;
