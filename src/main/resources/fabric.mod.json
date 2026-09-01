@@ -23,9 +23,10 @@
     "GamemodeDetection.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.21",
-    "fabric": "*",
-    "minecraft": "1.20.x"
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": ">=26.1 <26.2",
+    "cloth-config": "*"
   },
   "recommends": {
     "modmenu": "*"
